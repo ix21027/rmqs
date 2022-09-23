@@ -1,7 +1,6 @@
 require "rtesseract"
 require "down"
-# (amqp: "amqp://guest:guest@rabbitmq:5672")
-Sneakers.configure heartbeat: 30, amqp: "amqp://guest:guest@rabbitmq:5672", :log  => 'res.log'
+Sneakers.configure heartbeat: 30, amqp: "amqp://guest:guest@#{ENV.fetch('RABBITMQ_HOST', 'localhost')}:5672"#, :log  => 'res.log'
 Sneakers.logger.level = Logger::INFO 
 
 class Listener

@@ -6,16 +6,10 @@ services:
   app_producer:
     build:
       context: .
-    command: bash -c "bundle exec rackup -o 0.0.0.0 -p 8080"
+    command: bash -c "bundle exec rackup -o 0.0.0.0 -p 8080 -D && bundle exec sneakers work Listener --require listener.rb"
     depends_on:
       - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
     ports:
-      - '8080:8080'  
-  # app_worker:
-  #   build:
-  #     context: .
-  #   command: bash -c "bundle exec sneakers work Listener --require listener.rb"
-  #   depends_on:
-  #     - rabbitmq
-  #   volumes:
-  #     - .:/app
+      - '8080:8080'

@@ -1,0 +1,67 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
+    amq-protocol (2.3.2)
+    bunny (2.19.0)
+      amq-protocol (~> 2.3, >= 2.3.1)
+      sorted_set (~> 1, >= 1.0.2)
+    concurrent-ruby (1.1.10)
+    down (5.3.1)
+      addressable (~> 2.8)
+    hanami-api (0.2.0)
+      hanami-router (~> 2.0.alpha)
+    hanami-router (2.0.0.beta2)
+      mustermann (~> 1.0)
+      mustermann-contrib (~> 1.0)
+      rack (~> 2.0)
+    hansi (0.2.1)
+    hashie (5.0.0)
+    mustermann (1.1.2)
+      ruby2_keywords (~> 0.0.1)
+    mustermann-contrib (1.1.2)
+      hansi (~> 0.2.0)
+      mustermann (= 1.1.2)
+    nio4r (2.5.8)
+    public_suffix (5.0.0)
+    puma (5.6.5)
+      nio4r (~> 2.0)
+    rack (2.2.4)
+    rake (12.3.3)
+    rbtree (0.4.5)
+    rtesseract (3.1.2)
+    ruby2_keywords (0.0.5)
+    serverengine (2.1.1)
+      sigdump (~> 0.2.2)
+    set (1.0.3)
+    sigdump (0.2.4)
+    sneakers (2.12.0)
+      bunny (~> 2.14)
+      concurrent-ruby (~> 1.0)
+      rake (~> 12.3)
+      serverengine (~> 2.1.0)
+      thor
+    sorted_set (1.0.3)
+      rbtree
+      set (~> 1.0)
+    thor (1.2.1)
+    yaml (0.2.0)
+    zeitwerk (2.6.0)
+
+PLATFORMS
+  x86_64-linux-musl
+
+DEPENDENCIES
+  bunny (~> 2.19)
+  down (~> 5.3)
+  hanami-api (~> 0.2.0)
+  hashie (~> 5.0)
+  puma (~> 5.6)
+  rtesseract (~> 3.1)
+  sneakers (~> 2.12)
+  yaml (~> 0.2.0)
+  zeitwerk (~> 2.6)
+
+BUNDLED WITH
+   2.3.7

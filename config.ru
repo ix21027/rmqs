@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 require "bundler/setup"
-Bundler.require(:default)
-
-APP_LOADER = Zeitwerk::Loader.new
-APP_LOADER.push_dir("./")
-APP_LOADER.setup
-
-CONN = Bunny.new(host: 'rabbitmq')
-CONN.start
-CH = CONN.create_channel
-
+require "hanami/api"
+require "bunny"
 require "hanami/middleware/body_parser"
+
+begin
+  CONN = Bunny.new(hostname:  ENV.fetch('RABBITMQ_HOST', 'localhost'))
+  CONN.start
+  CH = CONN.create_channel
+rescue StandardError
+  sleep 1
+  retry
+end
 
 class App < Hanami::API
   use Hanami::Middleware::BodyParser, :json
