@@ -18,4 +18,4 @@ services:
       context: .
     environment:
       - RABBITMQ_HOST=rabbitmq
-    command: bundle exec oktest -s verbose test 
+    command: bundle exec oktest test 
