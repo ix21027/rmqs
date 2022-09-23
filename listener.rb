@@ -12,5 +12,7 @@ class Listener
     res = RTesseract.new(temp_img.path).to_s 
     logger.info "\n#{res}"
     ack!
+  rescue => e
+    logger.info e
   end
 end

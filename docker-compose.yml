@@ -3,7 +3,7 @@ services:
     image: rabbitmq:latest
     ports:
       - "5672:5672"
-  app_producer:
+  app:
     build:
       context: .
     command: bash -c "bundle exec rackup -o 0.0.0.0 -p 8080 -D && bundle exec sneakers work Listener --require listener.rb"
@@ -13,3 +13,9 @@ services:
       - RABBITMQ_HOST=rabbitmq
     ports:
       - '8080:8080'
+  oktest:
+    build: 
+      context: .
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    command: bundle exec oktest -s verbose test 
